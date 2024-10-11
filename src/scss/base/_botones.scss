@@ -1,0 +1,35 @@
+.boton-amarillo-block {
+    border-radius: 1rem;
+    @include boton($amarillo, block);
+}
+.boton-amarillo {
+    border-radius: 1rem;
+    @include boton($amarillo, inline-block);
+}
+
+
+
+.boton-verde-claro-inline-block {
+    border-radius: 1rem;
+    @include boton($verdeClaro, inline-block);
+}
+
+.boton-verde-claro-block {
+    border-radius: 1rem;
+    @include boton($verdeClaro, block);
+}
+
+.boton-rojo-block {
+    border-radius: 1rem;
+    @include boton($rojo, block);
+}
+/// This SCSS block styles an element with the 'boton-verde-block' class.
+/// It uses the 'boton' mixin with the '$verde' color and 'block' display mode.
+.boton-verde-block {
+    border-radius: 1rem;
+    @include boton($verde, block);
+}
+.boton-verde-inline-block {
+    border-radius: 1rem;
+    @include boton($verde, inline-block);
+}

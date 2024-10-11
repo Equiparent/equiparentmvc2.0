@@ -1,0 +1,109 @@
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+    
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+     
+    }
+}
+.navegacion {
+
+
+    @include tablet {
+        display: flex;
+        align-items: center;
+        line-height: 2;
+    }
+    
+    a {
+        color: $blanco;
+        text-decoration: none;
+        font-size: 2.2rem;
+        display: block;
+        line-height: 2;
+        text-align: center;
+        text-transform: none;
+        
+        &:hover {
+            color: $verdeClaro;
+        }
+
+        @include tablet {
+            margin-right: 2rem;
+            font-size: 1.8rem;
+          
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+
+     
+    }
+
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: visibility .3s ease-in-out, opacity .5s linear, height .5s linear; 
+
+    @include tablet {
+        display: flex;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    
+}
+.alinear-derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &:hover {
+        cursor: pointer;
+    }
+
+    @include tablet {
+        align-items: flex-end;
+    }
+
+    .dark-mode-boton {
+        width: 3rem;
+        margin-top: 0rem;
+        margin-bottom: 2rem;
+        filter: invert(100%);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @include tablet {
+            margin-top: 0;
+        }
+    }
+}
+
+
+
+
+
+/** Menu de hamburguesa **/
+.mobile-menu {
+    @include tablet {
+        display: none;
+    }
+
+    img {
+        width: 5rem;
+    }
+}
+
+.mostrar {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+}

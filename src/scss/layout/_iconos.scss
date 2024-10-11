@@ -1,0 +1,20 @@
+@include tablet {
+    .iconos {
+        @include grid(3, 2rem) 
+     }
+}
+
+.icono {
+    text-align: center;
+    img {
+        height: 10rem;
+        
+    }
+
+    h3 {
+        text-transform: uppercase;
+    }
+    .icon {
+        display: block;
+    }
+}

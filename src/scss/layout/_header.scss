@@ -1,0 +1,83 @@
+
+.header {
+    background-color: $grisOscuro;
+    // padding: 1rem 0 3rem 0;
+    
+    @include tablet {
+        min-height: 70rem;
+    }
+
+    &.inicio {
+        background-image: url(../img/hero.jpg);
+        background-position: center center;
+        background-size: cover;
+
+
+        @include tablet {
+            min-height: 70rem;
+        }
+
+
+        .contenido-header {
+            @include tablet {
+                min-height: 70rem;
+                
+            }
+        }
+    }
+}
+
+.contenido-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    h2 {
+        text-align: center;
+        color: $blanco;
+        font-weight: $bold;
+        line-height: 1;
+
+    }
+    // @include tablet {
+    //     min-height: 70rem;
+        
+    // }
+
+
+}
+
+    .boton-verde {    
+        display: block;
+        background-color: $verde;
+        border-radius: .5rem;
+        border: none;
+
+
+            .icon {
+                display: inline;
+            }
+
+        @include telefono {
+            .boton {
+                width: auto;
+                
+            }
+        }
+        @include tablet {
+            .boton {
+                width: auto;       
+            }
+        }
+        .boton a:hover {
+            cursor: pointer;
+        }
+
+    }
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+@include tablet {
+    .seccion-inferior {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 2rem;
+    }
+}
+.entrada-blog {
+    margin-bottom: 2rem;
+
+    @include tablet {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.texto-entrada {
+    a {
+        color: $negro;
+        display: block;
+        text-transform: none;
+        font-weight: $bold;
+        margin-top: 2rem;
+        text-decoration: none;
+        
+
+        @include tablet {
+            margin-top: 0;
+        }
+    }
+    h2 {
+        margin: 0;
+        line-height: 1.4;
+        font-weight: $bold;
+        display: inline;
+        color: $negro;
+        
+        &::after {
+            content: '';
+            display: block;
+            width: 15rem;
+            height: .5rem;
+            background-color: $verdeClaro;
+            margin-top: 1rem;
+        }
+    }
+    span {
+        color: $amarillo;
+        font-size: 1.8rem;
+    }
+}
+
+// .informacion-meta {
+//     span {
+//         color: $amarillo;
+//     }
+// }
+
+
+
