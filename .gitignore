@@ -1,1 +1,10 @@
 node_modules
+/vendor/
+/node_modules/
+/src/
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.staging

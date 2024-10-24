@@ -1,50 +1,54 @@
 
 <main class="contenedor seccion">
-        <h1>Contacto</h1>
+        <h3>Contacto</h3>
        
 <form class="formulario" action="/contacto" method="POST">
   <fieldset>
     <legend>Contáctanos llenando todos los campos</legend>
-      <div class="contenedor-campos">
+      <div class="forma-campo-contacto">
 
-        <div class="campo">
-          <label class="campo__label" for="nombre">Nombre</label>
-          <input class="input-text" type="text" placeholder="Tu Nombre" id="nombre" name="contacto[nombre]">
+          <label for="nombre">Nombre</label>
+          <input type="text" placeholder="Tu Nombre" id="nombre" name="contacto[nombre]">
         </div>
 
-        <div class="campo">
-          <label class="campo__label" for="telefono">Teléfono</label>
+        <div class="forma-campo-contacto">
+          <label for="telefono">Teléfono</label>
           <input class="input-text" type="tel" placeholder="Tu Teléfono" id="telefono" name="contacto[telefono]">
         </div>
           
-        <div class="campo">
-          <label class="campo__label" for="email">E-mail</label>
+        <div class="forma-campo-contacto">
+          <label for="email">E-mail</label>
           <input class="input-text" type="text" placeholder="Tu email" id="email" name="contacto[email]">
         </div> 
           
-      <div class="campo">
-        <label class="campo__label" for="mensaje">Mensaje</label>
+      <div class="forma-campo-contacto">
+        <label for="mensaje">Mensaje</label>
             <textarea class="input-text --textarea" id="mensaje" name="contacto[mensaje]"></textarea>
      
           </div>
-         
-          <p>Cómo desea ser contactado</p>
+        
+          
+          <h3 class="contacto"> Cómo desea ser contactado</h3>
+          
+<div>
+ 
+    <label type="select" for="contactar-telefono">Teléfono</label>
+    <input type="radio" value="telefono" id="contactar-telefono" name="contacto[contacto]">
 
-<div class="forma-contacto">
-    <label for="contactar-telefono">Teléfono</label>
-    <input name="contacto" type="radio" value="telefono" id="contactar-telefono">
 
-    <label for="contactar-email">E-mail</label>
-    <input name="contacto" type="radio" value="email" id="contactar-email">
+    <label type="select" for="contactar-email">E-mail</label>
+    <input type="radio" value="email" id="contactar-email" name="contacto[contacto]">
 </div>
+        
+          <h3>Si eligió teléfono, elija la fecha y la hora</h3>
+          
 
-<p>Si eligió teléfono, elija la fecha y la hora</p>
 
 <label for="fecha">Fecha:</label>
-<input type="date" id="fecha">
+<input type="date" id="fecha" name="contacto[fecha]">
 
 <label for="hora">Hora:</label>
-<input type="time" id="hora" min="09:00" max="18:00">
+<input type="time" id="hora" min="09:00" max="18:00" name="contacto[hora]">
 
 </fieldset>
 
@@ -52,5 +56,5 @@
         </main>
 
   
-
+      
 

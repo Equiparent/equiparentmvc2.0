@@ -1,3 +1,8 @@
+function consultarAPI() {
+    const url = `${location.origin}/api/servicios`;
+    
+
+}
 document.addEventListener('DOMContentLoaded', function() {
 
     eventListeners();
@@ -49,4 +54,7 @@ function navegacionResponsive() {
     if (navegacion) {
         navegacion.classList.toggle('mostrar');
     }
+}
+function agregarServicio() {
+    const url = `${location.origin}/api/servicio`;
 }

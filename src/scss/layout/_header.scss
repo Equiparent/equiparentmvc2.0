@@ -1,16 +1,28 @@
+.inicio {
+    background-image: url(../img/hero.jpg);
+    position: relative;
+
+    
+}
+
+
 
 .header {
     background-color: $grisOscuro;
-    // padding: 1rem 0 3rem 0;
+        padding: 1rem 0 3rem 0;
+      
+    
     
     @include tablet {
         min-height: 70rem;
     }
 
     &.inicio {
-        background-image: url(../img/hero.jpg);
+   
         background-position: center center;
         background-size: cover;
+        
+     
 
 
         @include tablet {
@@ -28,9 +40,12 @@
 }
 
 .contenido-header {
+   
+ 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+   
 
 
     h2 {
@@ -46,7 +61,7 @@
     // }
 
 
-}
+
 
     .boton-verde {    
         display: block;
@@ -75,6 +90,7 @@
         }
 
     }
+}
 
 
 
