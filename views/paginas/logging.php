@@ -1,9 +1,5 @@
 <?php
 
-     // Incluye el header
-
- 
-    
     $db = conectarDB();
     // Autenticar el usuario
 
@@ -36,21 +32,21 @@
 
             if( $resultado->num_rows ) {
                 // Revisar si el password es correcto
-                $usuarioId = mysqli_fetch_assoc($resultado);
+                $email = mysqli_fetch_assoc($resultado);
 
-                // var_dump($usuario['password']);
+                var_dump($password['password']);
 
                 //  Verificar si el password es correcto o no
                 
-                $auth = password_verify($password, $usuarioId['password'] ) ;
+                $auth = password_verify($password) ;
 
                 if($auth) {
                     //El usuario está autenticado
                     session_start();
 
                     // Llenar el arreglo de la sesión
-                    $_SESSION['usuario'] = $usuarioId['email'];
-                    $_SESSION['loginng'] = true;
+                    $_SESSION['logging'] = $email['email'];
+                    $_SESSION['logging'] = true;
 
                     header('Location: /admin');
 
@@ -97,43 +93,3 @@
         </main>
     
 
-<?php
-
-namespace Controllers;
-use MVC\Router;
-use Model\Admin;
-
-  // Autenticar el usuario
-  
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-   $admin = new Admin($_POST['admin']);
-   $errores = $admin->validar();
-
-
-   if(empty($errores)) {
-
-    // Revisar si el usuario existe.
-    $resultado = $admin->existeUsuario();
-
-    // Asignar el resultado del arreglo de resultado
-    [$existe, $resultado] = $resultado;
-    
-    if( $existe ) {
-        // Usuario existe, verificar su password
-        $resultado = $admin->verificarPassword($resultado);
-        [$auth] = $resultado;
-
-        // Verificar si el password es correcto o no
-        if(!$auth) {
-            return header('Location: /admin');
-        } else {
-            $errores = $resultado[1];
-        }
-    } else {
-        $errores = $resultado;
-    }
-}
-
-}
-
-?>

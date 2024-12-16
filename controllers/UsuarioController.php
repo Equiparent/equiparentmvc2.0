@@ -3,10 +3,10 @@ namespace Controllers;
 
 use MVC\Router;
 use Model\Usuario;
-use Model\ActiveRecord;
 
 class UsuarioController {
     public static function crear( Router $router ) {
+        
         $errores = Usuario::getErrores();
         $usuario = new Usuario;
 
@@ -18,13 +18,14 @@ class UsuarioController {
                 $usuario = new Usuario($_POST['usuario']);
             }
     
-            if(!preg_match('/[0-9]{9}/', $usuario->password)) {
-                $errores[] = "Password no válido";
-            }
+        //     if(!preg_match('/[0-9]{9}/', $usuario->password)) {
+        //         $errores[] = "Password no válido";
+        //     }
     
-            // Validar
+            // Validar que no haya campos vacíos
             $errores = $usuario->validar();
     
+            // No hay errores
             if(empty($errores)) {
                 $usuario->guardar();
             }
@@ -41,22 +42,23 @@ class UsuarioController {
         $errores = Usuario::getErrores();
         $id = validarORedireccionar('/admin');
 
+        // Obtener datos del usuario que queremos actualizar
         $usuario = Usuario::find($id);
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Asignar los atributos
-            if (isset($_POST['usuario'])) {
+        //     // Asignar los atributos
+        //     if (isset($_POST['usuario'])) {
                 $args = $_POST['usuario'];
                 $usuario->sincronizar($args);
-            }
+        //     }
     
-            // Validación
+           // Validación
             $errores = $usuario->validar();
     
             if(empty($errores)) {
-                $usuario->guardar();
-            }
-        }
+                 $usuario->guardar();
+             }
+     }
 
         $router->render('usuarios/actualizar', [
             'errores' => $errores,

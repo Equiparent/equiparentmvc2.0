@@ -14,7 +14,7 @@ if($_SERVER['SCRIPT_NAME'] === '/servicios') {
     
     <div class="servicio">
 
-        <img src="lazy" src="imagen/<?php echo $servicio['imagen']; ?>" alt="servicio digital">
+        <img src="lazy" src="img/<?php echo $servicio['img']; ?>" alt="servicio digital">
     
         <div class="contenedor-sombra">
         <h3><?php echo $servicio['titulo']; ?></h3>

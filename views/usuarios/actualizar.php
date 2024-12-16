@@ -1,7 +1,7 @@
 <?php
 use Model\Servicio;
 use Model\Usuario;
-require '../../includes/app.php';
+
 
 estaAutenticado();
  ?>
@@ -20,7 +20,7 @@ estaAutenticado();
 
         <?php endforeach; ?>
 
-        <form class="formulario" method="POST" action="/usuarios/actualizar">
+        <form class="formulario" method="POST">
             
             <?php include 'formulario.php'; ?>
 

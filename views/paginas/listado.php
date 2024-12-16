@@ -1,19 +1,19 @@
-<?php 
-function obtener_servicios() {
-    try {
-        require 'database.php';
-        $sql = "SELECT * FROM servicios; ";
-        $query = mysqli_query($db, $sql);
+<!-- <?php 
+//function obtener_servicios() {
+ //   try {
+ //       require 'database.php';
+  //      $sql = "SELECT * FROM servicios; ";
+ //       $query = mysqli_query($db, $sql);
         
 
-        echo "<pre>";
-        var_dump(mysqli_fetch_all($query) );
-        echo "</pre>";
-    }
-    catch (\Throwable $th) {
-        var_dump($th);
-    }
-}; ?>
+ //       echo "<pre>";
+ //       var_dump(mysqli_fetch_all($query) );
+ //       echo "</pre>";
+ //   }
+ //   catch (\Throwable $th) {
+ //       var_dump($th);
+ //   }
+//}; ?> -->
 
 <h2>Servicios</h2>
 

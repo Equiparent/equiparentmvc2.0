@@ -1,5 +1,3 @@
-
-
 <form class="formulario" action="/servicios/crear" method="POST">
     <fieldset>
         <legend>Información Personal</legend>

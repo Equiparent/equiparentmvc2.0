@@ -1,14 +1,12 @@
-
-
-<main class="contenedor sombra">
+<main class="contenedor seccion">
         <h1>Nosotros</h1>
 
         <div class="contenido-nosotros">
          <div class="imagen">
             <picture>
-                <source srcset="build/img/hero.webp" type="image/webp">
-                <source srcset="build/img/hero.jpg" type="image/jpeg">
-                <img loading="lazy" src="build/img/hero.jpg" alt="Sobre Nosotros">
+                <source srcset="public/build/img/nosotros.webp" type="image/webp">
+                <source srcset="public/build/img/nosotros.jpg" type="image/jpeg">
+                <img loading="lazy" src="public/build/img/nosotros.jpg" alt="Sobre Nosotros">
             </picture>
          </div>
 
@@ -23,7 +21,7 @@
         </div>
 
       </main>  
-      <section class="contenedor seccion">
+      <section class="contenedor sombra">
         <h1>Más Sobre Nosotros</h1>
 
   

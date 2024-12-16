@@ -7,12 +7,12 @@ use MVC\Router;
 use Model\Servicio;
 use Model\Blog;
 use PHPMailer\PHPMailer\PHPMailer;
-// use Model\ActiveRecord; // Remove if not needed
+use Model\ActiveRecord; // Remove if not needed
 
 class PaginasController {
     public static function index( Router $router ) {
 
-        $servicios = Servicio::all();
+        $servicios = Servicio::all(3);
         $inicio = true;
 
         $router->render('paginas/index', [
@@ -37,10 +37,10 @@ class PaginasController {
     }
     public static function servicio( Router $router ) {
 
-        $id = validarORedireccionar('/servicios');
+        $titulo = validarORedireccionar('/servicios');
 
         // Busca el servicio por su id
-        $servicio = Servicio::find($id);
+        $servicio = Servicio::find($titulo);
 
         $router->render('paginas/servicio', [
             'servicio' => $servicio

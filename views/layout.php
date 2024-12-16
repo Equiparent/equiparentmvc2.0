@@ -1,9 +1,13 @@
-<?php if(!isset($_SESSION)) {
+<?php 
+    if(!isset($_SESSION)) {
         session_start(); 
-}
+    }
 
-$auth = $_SESSION['logging'] ?? true;
+    $auth = $_SESSION['logging'] ?? true;
 
+    if(!isset($inicio)) {
+        $inicio = true; 
+    }
 ?>
 
 
@@ -19,7 +23,8 @@ $auth = $_SESSION['logging'] ?? true;
 </head>
 
 <body>
-<header class="header inicio">
+<header class="header <?php echo $inicio ? 'inicio' : ''; ?>">
+  
   <div class="contenedor contenido-header">
       <div class="logo">        
         <a href="/"><h1>EquiParent.App</h1></a>
@@ -34,7 +39,11 @@ $auth = $_SESSION['logging'] ?? true;
                   <a href="/nosotros">Nosotros</a>
                     <a href="/servicios">Servicios</a>
                     <a href="/blog">Blog</a>
-                    <a href="/contacto">Contacto</a>
+                    <a href="/usuarios/crear">Crear Cuenta</a>
+                    <?php if($auth): ?>
+                      <a href="/logging">Iniciar Sesión</a>
+                      <a href="/loggout">Cerrar Sesión</a>
+                  <?php endif; ?>
              </nav>
         </div>
       </div>
@@ -62,15 +71,15 @@ $auth = $_SESSION['logging'] ?? true;
     <?php echo $contenido; ?>
     
    
-    <footer class="footer seccion">
-        <div class="contenedor contenido-footer">
+<footer class="footer seccion">
+      <div class="contenedor contenido-footer">
         <nav class="navegacion">
-                  <a href="/nosotros">Nosotros</a>
-                    <a href="/servicios">Servicios</a>
-                    <a href="/blog">Blog</a>
-                    <a href="/contacto">Contacto</a>
-             </nav>
-        </div>
+              <a href="/nosotros">Nosotros</a>
+              <a href="/servicios">Servicios</a>
+              <a href="/blog">Blog</a>
+              <a href="/contacto">Contacto</a>
+        </nav>
+      </div>
     <p class="copyright">Todos los derechos reservados <?php echo date('Y'); ?> &copy;</p>
 </footer>
 

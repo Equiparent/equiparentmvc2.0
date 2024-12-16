@@ -2,16 +2,19 @@
 
 namespace Controllers;
 use MVC\Router;
-use Model\Admin;
+use Model\Logging;
+use Model\ActiveRecord;
 
 class LoggingController {
 public static function logging(Router $router) {
-
+ 
     $errores = [];
-
+   
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        $auth = new Admin($_POST);
+        
+        debuguear($_SERVER);
+        $auth = new Logging($_POST);
 
         $errores = $auth->validar();
        
@@ -20,7 +23,7 @@ public static function logging(Router $router) {
             $resultado = $auth->existeUsuario();
 
             if(!$resultado) {
-                $errores = Admin::getErrores();
+                $errores = Logging::getErrores();
             } else {
                 $autenticado = $auth->verificarPassword($resultado);
 
@@ -29,7 +32,7 @@ public static function logging(Router $router) {
                     $auth->autenticar();
 
                 } else {
-                    $errores = Admin::getErrores();
+                    $errores = Logging::getErrores();
                 }
                      
             }
@@ -37,14 +40,14 @@ public static function logging(Router $router) {
     }
 
            
-   $router->render('auth/logging', [
+   $router->render('/auth/logging', [
         'errores' => $errores
     ]);
 }
 
 public static function loggout() {
     session_start();
-
+    debuguear($_SESSION);
     $_SESSION = [];
 
     header('Location: /');

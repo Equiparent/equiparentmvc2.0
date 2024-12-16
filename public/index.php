@@ -2,11 +2,12 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../includes/app.php';
 
-use Controllers\LoggingController;
+
 use MVC\Router;
 use Controllers\ServicioController;
 use Controllers\UsuarioController;
 use Controllers\PaginasController;
+use Controllers\LoggingController;
 
 
 $router = new Router();
@@ -39,5 +40,8 @@ $router->post('/contacto', [PaginasController::class, 'contacto']);
 $router->get('/logging', [LoggingController::class, 'logging']);
 $router->post('/logging', [LoggingController::class, 'logging']);
 $router->get('/loggout', [LoggingController::class, 'loggout']);
+$router->get('/usuario', [UsuarioController::class, 'suscripcion']);
+$router->get('/usuario', [UsuarioController::class, 'suscripcion']);
+$router->get('/usuario', [UsuarioController::class, 'unsuscribe']);
 
 $router->comprobarRutas();

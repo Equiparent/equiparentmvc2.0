@@ -2,10 +2,11 @@
 
 define('TEMPLATES_URL', __DIR__. '/templates');
 define('FUNCIONES_URL', __DIR__ . 'funciones.php');
+//define('CARPETA_IMAGENES', $_SERVER['DOCUMENT_ROOT'] . '/imagenes/');
 
 
 function incluirTemplate( string $nombre, bool $inicio = true ) {
-    include TEMPLATES_URL . "/$nombre.php";
+    include TEMPLATES_URL . "/${nombre}.php";
 }
 
 function obtener_servicios() {
@@ -40,7 +41,7 @@ function obtener_servicios() {
 function estaAutenticado() : bool {
     session_start();
 
-    $auth = $_SESSION['logging'];
+    $auth = $_SESSION['email'];
     if($auth) {
         return true;
     }
@@ -49,10 +50,10 @@ function estaAutenticado() : bool {
 
 
 function debuguear($variable) {
-    echo "<pre>";
-    var_dump($variable);
-    echo "</pre>";
-    exit;
+    // echo "<pre>";
+    // var_dump($variable);
+    // echo "</pre>";
+    // exit;
 }
 
 // Escapa / Sanitizar el HTML
@@ -88,12 +89,12 @@ function mostrarNotificacion($codigo) {
 }
 function validarORedireccionar(string $url) {
     // Validar la URL por ID válido
-    $id = $_GET['id'];
-    $id = filter_var($id, FILTER_VALIDATE_INT);
+        $id = $_GET['id'];
+        $id = filter_var($id, FILTER_VALIDATE_INT);
 
-    if(!$id) {
-        header("Location: $url" );
-    }
+        if(!$id) {
+            header("Location: ${url}");
+        }
 
-    return $id;
+        return $id;
 }

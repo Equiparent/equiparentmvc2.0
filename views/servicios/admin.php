@@ -1,56 +1,16 @@
-<?php
-use Model\Servicio;
-use Model\Usuario;
-
-$servicios = Servicio::all();
-$usuarios = Usuario::all();
-
-$resultado = $_GET['resultado'] ?? null;
-
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
-    $id = $_POST['id'];
-    $id = filter_var($id, FILTER_VALIDATE_INT);
-
-    if($id) {
-
-        $tipo = $_POST['tipo'];
-
-        if(validarTipoContenido($tipo)) {
-            
-            if($tipo === 'usuario') {
-                $usuario = Usuario::find($id);
-                $usuario->eliminar();
-
-            } elseif($tipo === 'servicio') {
-                $servicio = Servicio::find($id);
-                $servicio->eliminar();
-            }
-        }
-
-       
-
-     
-    }
-}
-?>
-
-
-
 <main class="contenedor seccion">
 
         <h1>Administrador de Equiparent</h1>
 
         <?php 
-            if( intval( $resultado ) === 1): ?>
-                <p class="alerta exito">Creado Correctamente</p>
-                <?php elseif( intval( $resultado ) === 2 ): ?>
-                    <p class="alerta exito">Actualizado Correctamente</p>
-                <?php elseif( intval( $resultado ) === 3 ): ?>
-                    <p class="alerta exito">Eliminado Correctamente</p>
-                <?php endif ; ?>
-        <?php  ?>
+            if( $resultado ) {
+                $mensaje = mostrarNotificacion( intval($resultado) );
+                if ($mensaje) { ?>
+                        <p class="alerta exito"><?php echo s($mensaje) ?> </p>
+                    <?php } 
+            }   
+             
+        ?>
 
         <a href="/servicios/crear" class="boton boton-verde-claro-inline-block">Nuevo Servicio</a>
         <a href="/usuarios/crear" class="boton boton-amarillo">Nuevo(a) Usuario(a)</a>
@@ -115,7 +75,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <input type="submit" class="boton-rojo-block" value="Eliminar">
                         </form>
 
-                        <a href="/usuarios/actualizar?id=<?php echo $usuario->id; ?>" class="boton-amarillo-block">Actualizar</a>
+                        <a href="usuarios/actualizar?id=<?php echo $usuario->id; ?>" 
+                        class="boton-amarillo-block">Actualizar</a>
                 </td>
                 </tr>
             <?php endforeach; ?>

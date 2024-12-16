@@ -8,7 +8,7 @@ use Model\ActiveRecord;
 class Servicio extends ActiveRecord {
 
     // Base DE DATOS
-    protected static $tabla = 'servicios';
+    protected static $table = 'servicios';
     protected static $columnasDB = ['id', 'titulo', 'precio', 'description'];
 
     public $id;
@@ -28,6 +28,8 @@ class Servicio extends ActiveRecord {
     }
 
     public function validar() {
+
+        self::$errores = [];
 
         if(!$this->titulo) {
             self::$errores[] = "Debes añadir un titulo";

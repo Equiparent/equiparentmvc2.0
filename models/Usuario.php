@@ -1,18 +1,19 @@
 <?php
-
 namespace Model;
 
 use Model\ActiveRecord;
 
 class Usuario extends ActiveRecord {
     // Base DE DATOS
-    protected static $tabla = 'usuarios';
+    protected static $table = 'usuarios';
     protected static $columnasDB = ['id', 'nombre', 'apellido', 'telefono'];
     
     public $id;
     public $nombre;
     public $apellido;
     public $telefono;
+
+   
 
     // Define the static property for errors
     protected static $errores = [];
@@ -23,6 +24,7 @@ class Usuario extends ActiveRecord {
         $this->nombre = $args['nombre'] ?? '';
         $this->apellido = $args['apellido'] ?? '';
         $this->telefono = $args['telefono'] ?? '';
+
     }
 
     public function validar() {

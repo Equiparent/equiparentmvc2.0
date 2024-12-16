@@ -14,7 +14,7 @@ ActiveRecord::setDB($db);
 
 use Model\Servicio;
 $servicio = new Servicio;
-var_dump($servicio);
+// var_dump($servicio);
 
 use Model\Usuario;
 

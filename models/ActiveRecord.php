@@ -8,9 +8,8 @@ class ActiveRecord {
 
     // Base DE DATOS
     protected static $db;
-    protected static $tabla = '';
+    protected static $table = '';
     protected static $columnasDB = [];
-    protected $id; // Define id property
 
     // Errores
     protected static $errores = [];
@@ -31,6 +30,7 @@ class ActiveRecord {
 
     // Registros - CRUD
     public function guardar() {
+            $resultado = '';
         if(!is_null($this->id)) {
             // actualizar
             $resultado = $this->actualizar();
@@ -42,9 +42,9 @@ class ActiveRecord {
     }
 
     public static function all() {
-        $query = "SELECT * FROM " . static::$tabla;
+        $query = "SELECT * FROM " . static::$table;
 
-        $resultado = self::consultarSQL($query);
+        $resultado = self::query($query);
 
         return $resultado;
     }
@@ -52,9 +52,9 @@ class ActiveRecord {
     // Busca un registro por su id
     public static function find($id) {
         $id = self::$db->escape_string($id); // Escape the id to prevent SQL injection
-        $query = "SELECT * FROM " . static::$tabla  ." WHERE id = $id";
+        $query = "SELECT * FROM " . static::$table  ." WHERE id = $id";
 
-        $resultado = self::consultarSQL($query);
+        $resultado = self::query($query);
 
         return array_shift( $resultado ) ;
     }
@@ -65,11 +65,11 @@ class ActiveRecord {
         $atributos = $this->sanitizarAtributos();
 
         // Insertar en la base de datos
-        $query = "INSERT INTO " . static::$tabla . " ( ";
+        $query = "INSERT INTO " . static::$table . " ( ";
         $query .= join(', ', array_keys($atributos));
         $query .= " ) VALUES ('"; 
         $query .= join("', '", array_values($atributos));
-        $query .= "')";
+        $query .= " ') ";
 
         // Resultado de la consulta
         $resultado = self::$db->query($query);
@@ -93,7 +93,7 @@ class ActiveRecord {
             $valores[] = "{$key}='{$value}'";
         }
 
-        $query = "UPDATE " . static::$tabla ." SET ";
+        $query = "UPDATE " . static::$table ." SET ";
         $query .=  join(', ', $valores );
         $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
         $query .= " LIMIT 1 "; 
@@ -111,13 +111,14 @@ class ActiveRecord {
     // Eliminar un registro
     public function eliminar() {
         // Eliminar el registro
-        $query = "DELETE FROM "  . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
+        $query = "DELETE FROM "  . static::$table . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
         $resultado = self::$db->query($query);
+        
 
         return $resultado;
     }
 
-    public static function consultarSQL($query) {
+    public static function query($query) {
         // Consultar la base de datos
         $resultado = self::$db->query($query);
 
