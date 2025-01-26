@@ -1,3 +1,4 @@
+
 <main class="contenedor seccion">
         <h1>Registrar Usuario(a)</h1>            
         
@@ -5,7 +6,7 @@
             if( $resultado ) {
                 $mensaje = mostrarNotificacion( intval($resultado) );
                 if ($mensaje) { ?>
-                        <p class="alerta exito"><?php echo s($mensajeC) ?> </p>
+                        <p class="alerta exito"><?php echo s($mensaje) ?> </p>
                     <?php } 
             }   
              

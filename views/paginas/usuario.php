@@ -1,3 +1,9 @@
+<?php
+declare(strict_types=1);
+namespace Controllers;
+use Model\Admin;
+?>
+
 <main class="contenedor seccion">
         <h1>Registrar Usuario(a)</h1>            
 
@@ -19,14 +25,13 @@
                 <input type="submit" value="Registrar Usuario(a)" class="boton boton-verde-claro-inline-block">
             </form> 
         </main><?php
-declare(strict_types=1);
 
 
 $db = conectarDB();
 
 // Crear un email y password
-$email = [];
-$password = [];
+$email = '';
+$password = '';
 
 $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
@@ -50,7 +55,7 @@ function usuarioAutenticado(bool $autenticado) : string|int {
     if($autenticado) {
         return "El usuario esta autenticado";
     } else {
-        return null;
+        return "";
     }
 }
 
@@ -59,9 +64,7 @@ echo $usuario;
 ?>
 <?php
 
-namespace Controllers;
-use MVC\Router;
-use Model\Admin;
+
 
   // Autenticar el usuario
   
@@ -73,7 +76,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
    if(empty($errores)) {
 
     // Revisar si el usuario existe.
-    $resultado = $admin->existeUsuario();
+    $resultado = $admin->existeUsuario($email);
 
     // Asignar el resultado del arreglo de resultado
     [$existe, $resultado] = $resultado;

@@ -1,6 +1,6 @@
+const dartSass = require('sass');
 const { src, dest, watch, parallel } = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const autoprefixer = require('autoprefixer');
+const autoprefixer = require('gulp-autoprefixer');
 const postcss = require('gulp-postcss');
 const sourcemaps = require('gulp-sourcemaps');
 const cssnano = require('cssnano');
@@ -21,7 +21,7 @@ const paths = {
 function css() {
     return src(paths.scss)
         .pipe(sourcemaps.init())
-        .pipe(sass())
+        .pipe(dartSass().on('error', dartSass.logError)) // Correctly invoke dartSass
         .pipe(postcss([autoprefixer(), cssnano()]))
         .pipe(sourcemaps.write('.'))
         .pipe(dest('./public/build/css'));

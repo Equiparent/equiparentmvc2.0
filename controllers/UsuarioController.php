@@ -47,7 +47,7 @@ class UsuarioController {
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
         //     // Asignar los atributos
-        //     if (isset($_POST['usuario'])) {
+            if (isset($_POST['usuario'])) {
                 $args = $_POST['usuario'];
                 $usuario->sincronizar($args);
         //     }
@@ -65,6 +65,7 @@ class UsuarioController {
             'usuario' => $usuario
         ]);
     }
+}
 
     public static function eliminar() {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {

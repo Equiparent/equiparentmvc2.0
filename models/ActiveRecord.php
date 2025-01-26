@@ -3,14 +3,16 @@
 namespace Model;
 
 
-
 class ActiveRecord {
 
     // Base DE DATOS
     protected static $db;
     protected static $table = '';
     protected static $columnasDB = [];
-
+    public $id;
+    public $titulo;
+    public $precio;
+    public $description;
     // Errores
     protected static $errores = [];
 
@@ -58,6 +60,7 @@ class ActiveRecord {
 
         return array_shift( $resultado ) ;
     }
+    
 
     // crea un nuevo registro
     public function crear() {

@@ -75,7 +75,7 @@
                             <input type="submit" class="boton-rojo-block" value="Eliminar">
                         </form>
 
-                        <a href="usuarios/actualizar?id=<?php echo $usuario->id; ?>" 
+                        <a href="/usuarios/actualizar?id=<?php echo $usuario->id; ?>" 
                         class="boton-amarillo-block">Actualizar</a>
                 </td>
                 </tr>

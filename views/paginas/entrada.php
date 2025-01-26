@@ -4,8 +4,8 @@
         <article class="entrada-blog">
             <div class="imagen">
                 <picture>
-                    <source loading="lazy" srcset="build/img/blog1.webp" type="image/webp">
-                    <img loading="lazy" src="build/img/blog1.jpg" alt="imagen blog"> 
+                    <source loading="lazy" srcset="/build/img/blog1.webp" type="image/webp">
+                    <img loading="lazy" src="/build/img/blog1.jpg" alt="imagen blog"> 
                 </picture>
             </div>
 
@@ -21,8 +21,8 @@
         <article class="entrada-blog">
             <div class="imagen">
                 <picture>
-                    <source loading="lazy" srcset="build/img/blog2.webp" type="image/webp">
-                    <img loading="lazy" src="build/img/blog2.jpg" alt="imagen blog"> 
+                    <source loading="lazy" srcset="/build/img/blog2.webp" type="image/webp">
+                    <img loading="lazy" src="/build/img/blog2.jpg" alt="imagen blog"> 
                 </picture>
             </div>
 
@@ -38,8 +38,8 @@
         <article class="entrada-blog">
             <div class="imagen">
                 <picture>
-                    <source loading="lazy" srcset="build/img/blog3.webp" type="image/webp">
-                    <img loading="lazy" src="build/img/blog3.jpg" alt="imagen blog"> 
+                    <source loading="lazy" srcset="/build/img/blog3.webp" type="image/webp">
+                    <img loading="lazy" src="/build/img/blog3.jpg" alt="imagen blog"> 
                 </picture>
             </div>
 

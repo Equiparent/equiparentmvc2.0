@@ -15,9 +15,9 @@ body {
     line-height: 1.8rem;
 
    
-    // &.overflow-hidden {
-    //     overflow: hidden;
-    // }  
+    &.overflow-hidden {
+        overflow: hidden;
+    }  
 }
   p {
     color: $negro;
@@ -28,16 +28,16 @@ body {
   }
 
 .contenedor {
-    width: 100%;
+    width: 95%;
     max-width: 120rem;
     margin: 0 auto;        
  }
- .iframe {
-    overflow-y: auto;
-    overflow-x: auto;
-    overflow: unset;
-    font-family: $fuente_principal;
- }
+//  .iframe {
+//     overflow-y: auto;
+//     overflow-x: auto;
+//     overflow: unset;
+//     font-family: $fuente_principal;
+//  }
 a {
     text-decoration: none;
     text-transform: uppercase;

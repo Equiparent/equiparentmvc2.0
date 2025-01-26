@@ -1,4 +1,4 @@
-<main class="contenedor seccion contenido-centrado">
+<div class="contenedor seccion contenido-centrado">
         <h1>Iniciar Sesión</h1>
 
         <?php foreach($errores as $error): ?>
@@ -21,4 +21,4 @@
         
             <input type="submit" value="Iniciar Sesión" class="boton boton-verde-claro-inline-block">
         </form>
-    </main>
+        </div>

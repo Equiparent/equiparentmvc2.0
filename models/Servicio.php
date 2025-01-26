@@ -15,6 +15,7 @@ class Servicio extends ActiveRecord {
     public $titulo;
     public $precio;
     public $description;
+    
 
     // Initialize errores array
     protected static $errores = [];
