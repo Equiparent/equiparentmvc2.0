@@ -14,7 +14,7 @@ function darkMode() {
 
     const prefiereDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
 
-    // console.log(prefiereDarkMode.matches);
+    console.log(prefiereDarkMode.matches);
 
     if(prefiereDarkMode.matches) {
         document.body.classList.add('dark-mode');
@@ -55,6 +55,12 @@ function navegacionResponsive() {
         navegacion.classList.toggle('mostrar');
     }
 }
-// function agregarServicio() {
-//     const url = `${location.origin}/api/servicio`;
-// }
+function agregarServicio() {
+    const url = `${location.origin}/api/servicio`;
+}
+await setElementStyles(document.getElementById('email'), { autocomplete: 'email' });
+await setElementStyles(document.getElementById('password'), { autocomplete: 'current-password' });
+const data = {
+  emailAutocomplete: document.getElementById('email').getAttribute('autocomplete'),
+  passwordAutocomplete: document.getElementById('password').getAttribute('autocomplete')
+};

@@ -4,16 +4,15 @@ define('TEMPLATES_URL', __DIR__. '/templates');
 define('FUNCIONES_URL', __DIR__ . 'funciones.php');
 //define('CARPETA_IMAGENES', $_SERVER['DOCUMENT_ROOT'] . '/imagenes/');
 
-
-function incluirTemplate( string $nombre, bool $inicio = true ) {
-    include TEMPLATES_URL . "/${nombre}.php";
+function incluirTemplate( string $nombre, bool $inicio = false ) {
+    include TEMPLATES_URL . "/$nombre.php";
 }
 
 function obtener_servicios() {
     try {
         // Importar las credenciales
         require 'database.php';
-        //Consulta SQL
+        // Consulta SQL
         $sql = "SELECT * FROM servicios; ";
 
         // Realizar la consulta
@@ -21,22 +20,21 @@ function obtener_servicios() {
 
         return $query;
 
-        // Accede a los resultados
-
+        // The following lines are unreachable and should be removed or commented out
+        /*
         echo "<pre>";
-        var_dump(mysqli_fetch_assoc($query) );
+        var_dump(mysqli_fetch_assoc($query));
         echo "</pre>";
 
         // Cerrar la conexión (opcional)
         $resultado = mysqli_close($db);
         echo $resultado;
+        */
     }
     catch (\Throwable $th) {
         var_dump($th);
     }
 }
-
-
 
 function estaAutenticado() : bool {
     session_start();
@@ -47,7 +45,6 @@ function estaAutenticado() : bool {
     }
     return false;
 }
-
 
 function debuguear($variable) {
     // echo "<pre>";
@@ -61,6 +58,7 @@ function s($html) : string {
     $s = htmlspecialchars($html);
     return $s;
 }
+
 // Valida tipo de petición
 function validarTipoContenido($tipo){
     $tipos = ['usuario', 'servicio'];
@@ -87,14 +85,15 @@ function mostrarNotificacion($codigo) {
     }
     return $mensaje;
 }
+
 function validarORedireccionar(string $url) {
     // Validar la URL por ID válido
-        $id = $_GET['id'];
-        $id = filter_var($id, FILTER_VALIDATE_INT);
+    $id = $_GET['id'];
+    $id = filter_var($id, FILTER_VALIDATE_INT);
 
-        if(!$id) {
-            header("Location: ${url}");
-        }
+    if(!$id) {
+        header("Location: $url");
+    }
 
-        return $id;
+    return $id;
 }

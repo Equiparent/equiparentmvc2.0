@@ -1,8 +1,3 @@
-<!-- <?php
-    //require 'includes/app.php';
-    //incluirTemplate('header', $inicio = true);
-?> -->
-
 <main class="contenedor seccion">
         <h1>Soluciones Disponibles</h1>
 
@@ -29,9 +24,9 @@
             <article class="entrada-blog">
                 <div class="imagen">
                     <picture>
-                    <source srcset="build/img/blog1.webp" type="image/webp">
-                    <source srcset="build/img/blog1.jpg" type="image/jpeg">
-                    <img loading="lazy" src="build/img/blog1.jpg" alt="Texto Entrada">
+                    <source srcset="/build/img/blog1.webp" type="image/webp">
+                    <source srcset="/build/img/blog1.jpg" type="image/jpeg">
+                    <img loading="lazy" src="/build/img/blog1.jpg" alt="Texto Entrada">
                     </picture>
                 </div>
                 <div class="texto-entrada">
@@ -46,9 +41,9 @@
                 <article class="entrada-blog">
                 <div class="imagen">
                     <picture>
-                    <source srcset="build/img/blog2.webp" type="image/webp">
-                    <source srcset="build/img/blog2.jpg" type="image/jpeg">
-                    <img loading="lazy" src="build/img/blog2.jpg" alt="Texto Entrada">
+                    <source srcset="/build/img/blog2.webp" type="image/webp">
+                    <source srcset="/build/img/blog2.jpg" type="image/jpeg">
+                    <img loading="lazy" src="/build/img/blog2.jpg" alt="Texto Entrada">
                     </picture>
                 </div>
 

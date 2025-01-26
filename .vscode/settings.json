@@ -1,0 +1,8 @@
+{
+    "workbench.externalBrowser": "chrome",
+    "phpserver.browser": "chrome",
+    "liveServer.settings.NoBrowser": true,
+    "liveServer.settings.useWebExt": true,
+    "liveServer.settings.CustomBrowser": "chrome",
+    "typescript.tsserver.nodePath": "node"
+}

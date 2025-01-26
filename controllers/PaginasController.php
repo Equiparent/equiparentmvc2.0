@@ -124,4 +124,13 @@ class PaginasController {
         ]);
 
     }
+    public static function google_calendar( Router $router ) {
+       
+
+        $router->render('paginas/google_calendar', [
+            
+             
+        ]);
+
+    }
 }

@@ -24,14 +24,14 @@
 }
 
 @mixin contenedor {
-    width: 100%;
+    width: 95%;
     max-width: 100%;
     margin: 0 auto;
     align-items: center;
 }
 
 @mixin contenedor-iframe {
-    max-width: 100%;
+    max-width: 95%;
     // Added missing semicolon for consistency
 }
 

@@ -16,6 +16,7 @@ class Admin extends ActiveRecord {
     public $nombre;
     public $apellido;
     public $telefono;
+    public $password;
 
     public function __construct($args = [])
     {
@@ -35,7 +36,7 @@ class Admin extends ActiveRecord {
         return self::$errores;
     }
 
-    public function existeUsuario() {
+    public function existeUsuario($email) {
         // Revisar si el usuario existe.
         $query = "SELECT * FROM" . self::$table . " WHERE nombre = '" . $this->nombre . "' LIMIT 1";
         
@@ -48,9 +49,11 @@ class Admin extends ActiveRecord {
         }
         return $resultado;
     }
-       
 
-    
+    public function verificarPassword($resultado) {
+        // Implement the method logic here
+        // Example:
+        $auth = password_verify($this->password, $resultado['password']);
+        return [$auth];
+    }
 }
-
-          
